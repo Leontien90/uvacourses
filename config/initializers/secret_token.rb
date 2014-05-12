@@ -9,4 +9,19 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Uvacourses::Application.config.secret_key_base = '8adf41b76bfbd958323dcc5af5664d8ae8b457f1dbc09d4c420ef32e607d2f57ee3e65b7ea3da402ab1513c1b4fe14ac6db0b94f92d3f2924d4a44867d242df7'
+require 'securerandom'
+
+def secure_token
+  token_file = Rails.root.join('.secret')
+  if File.exist?(token_file)
+    # Use the existing token.
+    File.read(token_file).chomp
+  else
+    # Generate a new token and store it in token_file.
+    token = SecureRandom.hex(64)
+    File.write(token_file, token)
+    token
+  end
+end
+
+Uvacourses::Application.config.secret_key_base = secure_token

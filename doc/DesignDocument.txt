@@ -1,0 +1,15 @@
+* Course Database
+I'm planning on making different tables in the database, one for each faculty (or institute) This way the data will be devided to make for a quicker search. By selecting the faculty of choice the user will than be able to search that specific table for the desired course. The structure will look something like this:
+
+institute | course name | period   | ects   | description 
+_____________________________________________________________
+
+(string)  | (string)    | (string) | (int)  | (string/text)
+
+whereby the discription contains also information about who teaches the course, lecture materials etc etc. 
+
+by storing the seperate course names, institutes etc in different classes like "name" "institute" I can call upon the different information and use methods like .sort! to sort them in for example alphabetical order, amount of ects or the period a course is given in. 
+
+
+
+ 
