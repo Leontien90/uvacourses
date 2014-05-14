@@ -2,4 +2,4 @@
 
 web application to look up courses and stuff 
 
-test
+test 2
