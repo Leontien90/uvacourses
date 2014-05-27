@@ -1,6 +1,6 @@
-<% provide(:title, @user.name) %>
+<h1><% provide(:title, @user.name) %></h1>
 <div class="row">
-  <aside class="col-xs-4">
+  <aside class="col-sm-offset-4 col-sm-4">
     <section>
       <h1>
         <%= gravatar_for @user %>
@@ -8,4 +8,10 @@
       </h1>
     </section>
   </aside>
+  </div>
 </div>
+
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#">Shopped courses</a></li>
+  <li><a href="#">taken courses</a></li>
+</ul>

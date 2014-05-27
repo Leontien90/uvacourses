@@ -38,11 +38,11 @@ describe "Static pages" do
     it_should_behave_like "all static pages"
   end
   
-  describe "Contact page" do
-    before { visit contact_path }
+  describe "Search page" do
+    before { visit search_path }
     
-    let(:heading)     { 'Contact' }
-    let(:page_title)  { 'Contact' }
+    let(:heading)     { 'Search' }
+    let(:page_title)  { 'Search' }
     
     it_should_behave_like "all static pages"
   end
@@ -53,8 +53,8 @@ describe "Static pages" do
     expect(page).to have_title(full_title('About UvA courses'))
     click_link "Help"
     expect(page).to have_title(full_title('Help'))
-    click_link "Contact"
-    expect(page).to have_title(full_title('Contact'))
+    click_link "Search"
+    expect(page).to have_title(full_title('Search course'))
     click_link "Home"
     click_link "Sign up now!"
     expect(page).to have_title(full_title('Sign up'))
