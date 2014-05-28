@@ -1,4 +1,10 @@
 Uvacourses::Application.routes.draw do
+  resources :programmes
+
+  resources :staffs
+
+  resources :staff
+
   resources :courses
 
   get "courses/new"
