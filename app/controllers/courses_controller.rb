@@ -20,6 +20,11 @@ class CoursesController < ApplicationController
   # GET /courses/1/edit
   def edit
   end
+  
+  # GET /courses/search
+  def search
+    @course = Course.search params[:search]
+  end
 
   # POST /courses
   # POST /courses.json
@@ -71,4 +76,5 @@ class CoursesController < ApplicationController
     def course_params
       params.require(:course).permit(:name, :ects, :year, :period, :institute, :description, :goals, :participation_count, :examination)
     end
+    
 end

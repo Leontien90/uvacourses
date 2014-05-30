@@ -1,20 +1,9 @@
 <% provide(:title, 'Search course')%>
 <h1>Search for courses</h1>
 
-<div class="row">
-	<div class="col-sm-offset-4 col-sm-4">
-    <div class="input-group">
-      <input type="text" class="form-control">
-      <div class="input-group-btn">
-        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">Search <span class="caret"></span></button>
-        <ul class="dropdown-menu pull-right">
-          <li><a href="#">course name</a></li>
-          <li><a href="#">course subject</a></li>
-          <li><a href="#">course ECT</a></li>
-          <li class="divider"></li>
-          <li><a href="#">search all</a></li>
-        </ul>
-      </div><!-- /btn-group -->
-    </div><!-- /input-group -->
-  </div><!-- /.col-lg-6 -->
-</div><!-- /.row -->
+
+<%= form_tag :controller => 'courses', :action => 'search', :method => 'get' do %>
+      <%= text_field_tag :search, params[:search], :id => 'search_field' %>
+      <%= submit_tag "Search", :name => nil %> 
+      <%= link_to_function "Clear", "$('search_field').clear()" %>
+<% end %>

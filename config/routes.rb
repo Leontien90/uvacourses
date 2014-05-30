@@ -1,25 +1,35 @@
 Uvacourses::Application.routes.draw do
-  resources :programmes
-
-  resources :staffs
-
-  resources :staff
-
-  resources :courses
-
-  get "courses/new"
-  get "users/new"
-  resources :users
-  resources :sessions, only: [:new, :create, :destroy]
+  
   root  'static_pages#home'
-  match '/signup',      to: 'users#new',              via: 'get'
-  match '/signin',      to: 'sessions#new',           via: 'get'
-  match '/signout',     to: 'sessions#destroy',       via: 'delete'
+  match '/search',      to: 'static_pages#search',    via: 'get'
   match '/help',        to: 'static_pages#help',      via: 'get'
   match '/about',       to: 'static_pages#about',     via: 'get'
-  match '/search',      to: 'static_pages#search',    via: 'get'
-  match '/shopped',     to: 'courses#shopped',        via: 'get'
+  
+  resources :sessions, only: [:new, :create, :destroy]
+  match '/signin',      to: 'sessions#new',           via: 'get'
+  match '/signout',     to: 'sessions#destroy',       via: 'delete'
+  
+  resources :welcome
   get "welcome/index"
+  
+  resources :users
+  get "users/new"
+  match '/signup',      to: 'users#new',              via: 'get'
+  
+  
+  resources :programmes
+  
+
+  resources :staffs
+  
+
+  resources :courses
+  match '/shopped',     to: 'courses#shopped',        via: 'get'
+  match '/search',      to: 'courses#search',         via: 'post'
+
+  #get "courses/new"
+
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
