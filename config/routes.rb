@@ -24,10 +24,12 @@ Uvacourses::Application.routes.draw do
   
 
   resources :courses
-  match '/shopped',     to: 'courses#shopped',        via: 'get'
-  match '/search',      to: 'courses#search',         via: 'post'
+  get "courses/new"
+  match '/shopped',     to: 'courses#shopped',          via: 'get'
+  match '/search',      to: 'courses#search',           via: 'get'
+  match '/search',      to: 'courses#search',           via: 'post'
 
-  #get "courses/new"
+  
 
   
   # The priority is based upon order of creation: first created -> highest priority.

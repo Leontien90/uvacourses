@@ -1,5 +1,5 @@
 class CoursesController < ApplicationController
-  before_action :set_course, only: [:show, :edit, :update, :destroy]
+  before_action only: [:show, :edit, :update, :destroy]
 
   # GET /courses
   # GET /courses.json
@@ -10,6 +10,7 @@ class CoursesController < ApplicationController
   # GET /courses/1
   # GET /courses/1.json
   def show
+    @course = Course.find(params[:search])
   end
 
   # GET /courses/new
@@ -21,9 +22,10 @@ class CoursesController < ApplicationController
   def edit
   end
   
-  # GET /courses/search
+  # POST /courses/search
   def search
-    @course = Course.search params[:search]
+    @courses = Course.search params[:search]
+    render template: "courses/show"
   end
 
   # POST /courses
@@ -69,12 +71,11 @@ class CoursesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_course
-      @course = Course.find(params[:id])
+      @course = Course.find(params[:search])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def course_params
       params.require(:course).permit(:name, :ects, :year, :period, :institute, :description, :goals, :participation_count, :examination)
-    end
-    
+    end    
 end
