@@ -1,5 +1,5 @@
 class StaffsController < ApplicationController
-  before_action :set_staff, only: [:show, :edit, :update, :destroy]
+  before_action only: [:show, :edit, :update, :destroy]
 
   # GET /staffs
   # GET /staffs.json
@@ -69,6 +69,6 @@ class StaffsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def staff_params
-      params.require(:staff).permit(:name, :url)
+      params.require(:staff).permit(:staff_name, :url)
     end
 end

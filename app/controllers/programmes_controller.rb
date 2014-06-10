@@ -1,5 +1,5 @@
 class ProgrammesController < ApplicationController
-  before_action :set_programme, only: [:show, :edit, :update, :destroy]
+  before_action only: [:show, :edit, :update, :destroy]
 
   # GET /programmes
   # GET /programmes.json
@@ -69,6 +69,6 @@ class ProgrammesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def programme_params
-      params.require(:programme).permit(:name, :url)
+      params.require(:programme).permit(:programme_name, :url)
     end
 end

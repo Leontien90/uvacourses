@@ -1,20 +1,41 @@
 <h1><% provide(:title, 'Search results') %></h1>
-<div class="row">
-  <aside class="col-sm-offset-4 col-sm-4">
-    <section>
-      <h1>
-        Search results
-      </h1>
-    </section>
-  </aside>
-  </div>
+	<div class="row">
+		<aside class="col-sm-offset-4 col-sm-4">
+			<section>
+  			  <h1>
+    			  Search results
+  			  </h1>
+		    </section>
+		</aside>
+		<div class="table-responsive">
+			<table class="table table-striped">
+  			  <tr>
+				  <th> Course </th>
+				  <th> ECTS </th>
+				  <th> Institute </th>
+				  <th> info </th>
+				  <th> Add </th>
+			  </tr>
+			  <tr>
+				  <% @courses.each do |course| %>
+				  <td><%= course.course_name.html_safe %></td>
+				  <td><%= course.ects %></td>
+				  <td><%= course.institute.html_safe %></td>
+				  <td>
+					  <button type="button" class="btn btn-default btn-xs">
+						  <span class="glyphicon glyphicon-search"></span>
+					  </button>
+					  </td>
+				  <td>
+					  <button type="button" class="btn btn-default btn-xs">
+					  <span class="glyphicon glyphicon-plus"></span>
+				  </button>
+				  </td>
+			  </tr>
+			  <% end %>
+		  </table>
+	  </div>
 </div>
 
-<ul class = 'unstyled'>
-	<% @courses.each do |course| %>
-	<li><%= course.name.html_safe %></li>
-	<%= course.ects %><br>
-	<%= course.institute.html_safe %>
-		<% end %>
-	</ul>
+
 
