@@ -22,10 +22,10 @@
 				  <td><%= course.ects %></td>
 				  <td><%= course.institute.html_safe %></td>
 				  <td>
-					  <button type="button" class="btn btn-default btn-xs">
-						  <span class="glyphicon glyphicon-search"></span>
-					  </button>
-					  </td>
+					  <a href="<%= "/courses/view/#{course.id}" %> role="button" class="btn btn-default btn-xs" >
+						  <span class="glyphicon glyphicon-info-sign"></span>
+					  </a>
+				  </td>
 				  <td>
 					  <button type="button" class="btn btn-default btn-xs">
 					  <span class="glyphicon glyphicon-plus"></span>
