@@ -1,0 +1,35 @@
+<% provide(:title, 'Course details') %>
+<div class="row">
+	<div class="col-xs-12">
+		<h1>Course details</h1>
+		<dl class="dl-horizontal">
+			<dt>Name</dt>
+				<dd><%= @course.course_name.html_safe %></dd>
+			<dt>ECTS</dt>
+				<dd><%= @course.ects %></dd>
+			<dt>Year</dt>
+				<dd><%= @course.year.html_safe %></dd>
+			<dt>Perdiod</dt>
+				<dd><%= @course.period.html_safe %></dd>
+			<dt>Institute</dt>
+				<dd><%= @course.institute.html_safe %></dd>
+			<dt>Description</dt>
+				<dd><%= @course.description.html_safe %></dd>
+			<dt>Goals</dt>
+				<dd><%= @course.goals.html_safe %></dd>
+			<dt>Participation count</dt>
+				<dd><%= @course.participation_count.html_safe %></dd>
+			<dt>Examination</dt>
+				<dd><%= @course.examination.html_safe %></dd>
+		</dl>
+		
+		<%= form_for @course, url: {action: "create", controller: "relationships"} do |f| %>
+			<%= text_field_tag :id, params[:id], value: @course.id %>
+			<%= f.submit "Add to shopping cart", class: "btn btn-info btn-md" %>
+		<% end %>
+		
+		<pre><%= debug(@course) if Rails.env.development? %></pre>
+	</div>
+</div>
+
+				
