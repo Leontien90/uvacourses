@@ -25,9 +25,13 @@ Uvacourses::Application.routes.draw do
 
   resources :courses
   get "courses/new"
-  match '/shopped',     to: 'courses#shopped',          via: 'get'
-  match '/search',      to: 'courses#search',           via: 'get'
-  match '/search',      to: 'courses#search',           via: 'post'
+  match '/courses/view/:id',  to: 'courses#view',             via: 'get'
+  match '/shopped',           to: 'courses#shopped',          via: 'get'
+  match '/search',            to: 'courses#search',           via: 'get'
+  match '/search',            to: 'courses#search',           via: 'post'
+  
+  resources :relationships
+  match '/relationships',     to: 'relationship#create',     via: 'patch'
 
   
 
