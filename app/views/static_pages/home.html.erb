@@ -1,6 +1,16 @@
+<% provide(:title, '') %>
+
 <% if signed_in? %>
 
-<% provide(:title, '') %>
+<div class="jumbotron">
+	<h1> Welcome to UvA courses! </h1>
+	<h2>You are signed in and ready to go !</h2>
+	
+<%= link_to image_tag("uva.jpg", alt: "uva"), 'http://www.uva.nl' %>
+
+</div>
+
+<% else %>
 
 <div class="center hero-unit">
 	
@@ -8,8 +18,13 @@
 
 <h2>This is the home page for the UvA courses web application<h2>
 	
-	<%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-info" %>
+	<%= link_to "Sign in", signin_path, class: "btn btn-info btn-lg" %>
+	
+	<p>New user? <%= link_to "Sign up now!", signup_path %></p>
+
 </div>
 
-<%= link_to image_tag("uva.jpg", alt: "uva"), 'http://www.uva.nl' %>
+<% end %>
+
+
 
