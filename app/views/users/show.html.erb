@@ -10,8 +10,19 @@
   </aside>
   </div>
 </div>
-
-<ul class="nav nav-tabs">
-  <li class="active"><a href="#">Shopped courses</a></li>
-  <li><a href="#">taken courses</a></li>
-</ul>
+		<div class="table-responsive">
+			<table class="table table-striped">
+    			  <tr>
+  				  <th> Course </th>
+  				  <th> ECTS </th>
+  				  <th> Institute </th>
+  			  </tr>
+			  <tr>
+				 <% @user.courses.each do |course| %>
+				 <td><%= course.course_name.html_safe %></td>
+				 <td><%= course.ects %></td>
+				 <td><%= course.institute.html_safe%></td>
+			 </tr>
+			  <% end%>
+		  </table>
+	  </div>

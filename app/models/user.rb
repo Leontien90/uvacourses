@@ -8,7 +8,8 @@ class User < ActiveRecord::Base
                     format:     { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
   validates :password, length: { minimum: 6 }
-  
+  has_many :shoppeds
+  has_many :courses, :through => :shoppeds
   def User.new_remember_token
     SecureRandom.urlsafe_base64
   end

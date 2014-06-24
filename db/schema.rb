@@ -11,10 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140528144242) do
+ActiveRecord::Schema.define(version: 20140623101024) do
 
   create_table "courses", force: true do |t|
-    t.string   "name"
+    t.string   "course_name"
     t.integer  "ects"
     t.string   "year"
     t.string   "period"
@@ -41,15 +41,27 @@ ActiveRecord::Schema.define(version: 20140528144242) do
     t.datetime "updated_at"
   end
 
+  create_table "courses_users", id: false, force: true do |t|
+    t.integer "course_id"
+    t.integer "user_id"
+  end
+
   create_table "programmes", force: true do |t|
-    t.string   "name"
+    t.string   "programme_name"
     t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  create_table "shoppeds", force: true do |t|
+    t.integer  "course_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "staffs", force: true do |t|
-    t.string   "name"
+    t.string   "staff_name"
     t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"

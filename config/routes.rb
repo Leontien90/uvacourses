@@ -29,12 +29,8 @@ Uvacourses::Application.routes.draw do
   match '/shopped',           to: 'courses#shopped',          via: 'get'
   match '/search',            to: 'courses#search',           via: 'get'
   match '/search',            to: 'courses#search',           via: 'post'
+  match '/addcourse',         to: 'courses#addshopped',       via: 'patch'
   
-  resources :relationships
-  match '/relationships',     to: 'relationship#create',     via: 'patch'
-
-  
-
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

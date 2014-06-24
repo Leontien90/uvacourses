@@ -23,7 +23,7 @@
 				<dd><%= @course.examination.html_safe %></dd>
 		</dl>
 		
-		<%= form_for @course, url: {action: "create", controller: "relationships"} do |f| %>
+		<%= form_for @course, url: {action: "addshopped", controller: "courses"} do |f| %>
 			<%= text_field_tag :id, params[:id], value: @course.id %>
 			<%= f.submit "Add to shopping cart", class: "btn btn-info btn-md" %>
 		<% end %>

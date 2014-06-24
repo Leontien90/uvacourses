@@ -29,6 +29,12 @@ class CoursesController < ApplicationController
     render template: "courses/show"
   end
 
+  def addshopped
+    @course = Course.find(params[:id])
+    current_user.courses << @course
+    redirect_to current_user
+  end
+  
   # POST /courses
   # POST /courses.json
   # def create
