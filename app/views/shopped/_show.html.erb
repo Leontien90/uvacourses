@@ -1,0 +1,38 @@
+<!-- show file for shopped courses -->
+
+<table class="table table-striped">
+	<tr>
+		<th> Course </th>
+		<th> info </th>
+		<th> add </th>
+		<th> delete </th>
+	</tr>
+	<% @shopped.each do |course| %>
+	<tr>
+		<td>
+			<%= course.course_name.html_safe %>
+		</td>
+		<td>
+		  <a href="<%= "/courses/view/#{course.id}" %>" role="button" class="btn btn-default btn-xs" >
+			  <span class="glyphicon glyphicon-info-sign"></span>
+		  </a>
+		</td>
+		<td>
+			<%= form_for @user, url: {action: "addtaken", controller: "takens"} do |f| %>
+				<%= text_field_tag :id, params[:id], value: course.id, style: 'display: none;' %>
+				<button class="btn btn-default btn-xs" role="button" type="submit">
+					<span class="glyphicon glyphicon-plus"></span>
+				</button>
+			<% end %>
+		</td>
+	  	<td>
+			<%= form_for course, url: {action: "update", controller: "shoppeds"} do |f| %>
+				<%= text_field_tag :id, params[:id], value: course.id, style: 'display: none;' %>
+				<button class="btn btn-default btn-xs" role="button" type="submit">
+					<span class="glyphicon glyphicon-trash"></span>
+				</button>
+			<% end %>
+		</td>
+	</tr>
+	<% end%>
+</table>

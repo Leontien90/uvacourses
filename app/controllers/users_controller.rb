@@ -2,7 +2,8 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    @shopped = Shopped.find(params[:id])
+    @shopped = Course.joins(:shoppeds).where(shoppeds: { 'user_id' => params[:id] })
+    @taken = Course.joins(:takens).where(takens: { 'user_id' => params[:id] })
   end
   
   def new

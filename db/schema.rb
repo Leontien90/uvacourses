@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140623101024) do
+ActiveRecord::Schema.define(version: 20140626112655) do
 
   create_table "courses", force: true do |t|
     t.string   "course_name"
@@ -41,11 +41,6 @@ ActiveRecord::Schema.define(version: 20140623101024) do
     t.datetime "updated_at"
   end
 
-  create_table "courses_users", id: false, force: true do |t|
-    t.integer "course_id"
-    t.integer "user_id"
-  end
-
   create_table "programmes", force: true do |t|
     t.string   "programme_name"
     t.string   "url"
@@ -67,6 +62,13 @@ ActiveRecord::Schema.define(version: 20140623101024) do
     t.datetime "updated_at"
   end
 
+  create_table "takens", force: true do |t|
+    t.integer  "course_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "email"
@@ -78,5 +80,12 @@ ActiveRecord::Schema.define(version: 20140623101024) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["remember_token"], name: "index_users_on_remember_token"
+
+  create_table "viewedcourses", force: true do |t|
+    t.integer  "course_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

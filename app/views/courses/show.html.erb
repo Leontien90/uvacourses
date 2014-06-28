@@ -27,9 +27,12 @@
 					  </a>
 				  </td>
 				  <td>
-					  <button type="button" class="btn btn-default btn-xs">
-					  <span class="glyphicon glyphicon-plus"></span>
-				  </button>
+					<%= form_for course, url: {action: "addshopped", controller: "shoppeds"} do |f| %>
+						<%= text_field_tag :id, params[:id], value: course.id, style: 'display: none;' %>
+						<button class="btn btn-default btn-xs" role="button" type="submit">
+							<span class="glyphicon glyphicon-plus"></span>
+						</button>
+					<% end %>
 				  </td>
 			  </tr>
 			  <% end %>

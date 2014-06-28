@@ -1,4 +1,4 @@
-class Shopped < ActiveRecord::Base
+class Taken < ActiveRecord::Base
   belongs_to :course
   belongs_to :user
 end

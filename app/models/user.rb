@@ -9,7 +9,12 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
   validates :password, length: { minimum: 6 }
   has_many :shoppeds
-  has_many :courses, :through => :shoppeds
+  has_many :coursesshopped, :through => :shoppeds, :source => :course
+  has_many :takens
+  has_many :coursestaken, :through => :takens, :source => :course
+  has_many :viewedcourses
+  has_many :coursesviewed, :through => :viewedcourses, :source => :course
+  
   def User.new_remember_token
     SecureRandom.urlsafe_base64
   end

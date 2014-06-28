@@ -1,0 +1,29 @@
+<!-- show file for taken courses -->
+
+<table class="table table-striped">
+	<tr>
+		<th> Course </th>
+		<th> info </th>
+		<th> delete </th>
+	</tr>
+	<% @taken.each do |course| %>
+	<tr>
+		<td>
+			<%= course.course_name.html_safe %>
+		</td>
+		<td>
+		  <a href="<%= "/courses/view/#{course.id}" %>" role="button" class="btn btn-default btn-xs" >
+			  <span class="glyphicon glyphicon-info-sign"></span>
+		  </a>
+		</td>
+	  	<td>
+			<%= form_for course, url: {action: "update", controller: "takens"} do |f| %>
+				<%= text_field_tag :id, params[:id], value: course.id, style: 'display: none;' %>
+				<button class="btn btn-default btn-xs" role="button" type="submit">
+					<span class="glyphicon glyphicon-trash"></span>
+				</button>
+			<% end %>
+		</td>
+	</tr>
+	<% end%>
+</table>

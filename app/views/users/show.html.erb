@@ -1,28 +1,36 @@
 <h1><% provide(:title, @user.name) %></h1>
 <div class="row">
-  <aside class="col-sm-offset-4 col-sm-4">
+  <div class="col-sm-offset-4 col-sm-4">
     <section>
       <h1>
         <%= gravatar_for @user %>
         <%= @user.name %>
       </h1>
     </section>
-  </aside>
   </div>
 </div>
-		<div class="table-responsive">
-			<table class="table table-striped">
-    			  <tr>
-  				  <th> Course </th>
-  				  <th> ECTS </th>
-  				  <th> Institute </th>
-  			  </tr>
-			  <tr>
-				 <% @user.courses.each do |course| %>
-				 <td><%= course.course_name.html_safe %></td>
-				 <td><%= course.ects %></td>
-				 <td><%= course.institute.html_safe%></td>
-			 </tr>
-			  <% end%>
-		  </table>
-	  </div>
+<ul class="nav nav-tabs" id="tabProfile">
+	<li class="active">
+		<a href="#shopped" data-toggle="tab">Shopped <span class="hidden-xs">courses</span></a>
+	</li>
+	<li>
+		<a href="#taken" data-toggle="tab">Taken <span class="hidden-xs">courses</span></a>
+	</li>
+	<li>
+		<a href="#viewed" data-toggle="tab">Viewed <span class="hidden-xs">courses</span></a>
+	</li>
+</ul>
+<div class="tab-content" style="padding: 15px 0 0 0; border: 1px solid #DDD; border-top: none; margin-top: -1px;">
+	<div class="tab-pane active" id="shopped">
+		<%= render 'shopped/show' %>
+		<%= debug(@shopped) if Rails.env.development? %>
+	</div>
+	<div class="tab-pane" id="taken">
+		<%= render 'taken/show' %>
+		<%= debug(@taken) if Rails.env.development? %>
+	</div>
+	<div class="tab-pane" id="viewed">
+		<%= render 'viewed_courses/show' %>
+	</div>
+</div>
+<%= debug(@user) if Rails.env.development? %>

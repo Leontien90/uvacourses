@@ -21,13 +21,17 @@
 				<dd><%= @course.participation_count.html_safe %></dd>
 			<dt>Examination</dt>
 				<dd><%= @course.examination.html_safe %></dd>
+			<dt>&nbsp;</dt>
+				<dd>
+					<%= form_for @course, url: {action: "addshopped", controller: "shoppeds"} do |f| %>
+						<%= text_field_tag :id, params[:id], value: @course.id, style: "display: none;" %>
+						<button class="btn btn-primary btn-sm btn-block" role="button" type="submit">
+							<span class="glyphicon glyphicon-shopping-cart"></span>
+							Add to shopping cart
+						</button>
+					<% end %>
+				</dd>
 		</dl>
-		
-		<%= form_for @course, url: {action: "addshopped", controller: "courses"} do |f| %>
-			<%= text_field_tag :id, params[:id], value: @course.id %>
-			<%= f.submit "Add to shopping cart", class: "btn btn-info btn-md" %>
-		<% end %>
-		
 		<pre><%= debug(@course) if Rails.env.development? %></pre>
 	</div>
 </div>
