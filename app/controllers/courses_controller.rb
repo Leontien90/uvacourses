@@ -1,12 +1,6 @@
 class CoursesController < ApplicationController
   before_action only: :show
 
-  # GET /courses
-  # GET /courses.json
-  def index
-    @courses = Course.all
-  end
-
   # GET /courses/1
   # GET /courses/1.json
   def show

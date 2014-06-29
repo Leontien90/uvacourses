@@ -9,7 +9,7 @@ class TakensController < ApplicationController
   
   def update
     @course = Course.find(params[:id])
-    current_user.coursestaken.destroy(@course)
+    current_user.coursestaken.delete(@course)
     redirect_to current_user
   end
   
